@@ -12,17 +12,9 @@
 
  <?php
             
-               if(isset($_POST['submit'])){
-                $name = $_POST['name'];
-                $email = $_POST['email'];
-                $phone = $_POST['phone'];
-                $services = $_POST['services'];
-                $address = $_POST['address'];
-                $msg = $_POST['msg'];
-                
-                $to ="codewithcpn@gmail.com";
-                $from =$email;
-                $html="<!DOCTYPE html>
+               $to ='cpn.efficientindia@gmail.com';
+                         $from ='no-reply@kgpsglobal.com';
+                         $html="<!DOCTYPE html>
                             <html>
                              <head>
                             <style>
@@ -37,26 +29,25 @@
                                     <title></title>
                                 </head>
                                 <body>
-                                    <table style='border-collapse: collapse; width:70%'>
-                                         <th style='text-align:center; ' colspan='2'>Customer Enquiry Details</th>
+                                    <table style='border-collapse: collapse; width:70%; background-color:#eaf1fb'>
+                                         <tr><th style='text-align:center; background-color:#fff; width:300;' colspan='2'><img src='https://www.kgpsglobal.com/demo/assets/frontend/images/logo/kgpsgloba-logo.png'></th></tr>
+                                         <th style='text-align:center; ' colspan='2'>Clients Enquiry</th>
                                          <tr><th>Name:</th><td>$name</td></tr>
                                          <tr><th>Email:</th><td>$email</td></tr>
                                          <tr><th>Phone:</th><td>$phone</td></tr>
-                                         <tr><th>Services:</th><td>$services</td></tr>
-                                         <tr><th>Address:</th><td>$address</td></tr>
-                                         <tr><th>Message:</th><td>$msg</td></tr>
+                                         <tr><th>Message:</th><td>$message</td></tr>
                                     </table>
                                 </body>
                             </html>
-                ";
-                $subject = "iGEN Networks - Customer Enquiry Details";
-                $message = $html;
-                $headers  = 'MIME-Version: 1.0' . "\r\n";
-                $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-                $headers .= "From: ".$email;
-            
-                //  mail($to,$subject,$message,$headers);
-            
+                                    ";
+                            $subject = "KGPS Global";
+                            $message = $html;
+                            $headers  = 'MIME-Version: 1.0' . "\r\n";
+                            $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+                            $headers .= "From: ".$from;
+                            
+                            mail($to,$subject,$message,$headers);
+                
             
                  if(mail($to,$subject,$message,$headers))
                  {
